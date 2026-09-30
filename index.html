@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Earn from Your LinkedIn Account</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #f2f6ff;
+        margin: 0;
+        padding: 0;
+        color: #222;
+        line-height: 1.6;
+    }
+
+    header {
+        background: linear-gradient(to right, #0a66c2, #004182);
+        color: white;
+        padding: 60px 20px 40px;
+        text-align: center;
+        animation: fadeIn 1.2s ease-out;
+    }
+
+    header h1 {
+        font-size: 32px;
+        margin: 0;
+    }
+
+    header p {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .top-testimonial {
+        max-width: 100px;
+        margin: 0 auto;
+        margin-top: -30px;
+        padding: 0 20px;
+    }
+
+    .top-testimonial {
+        max-width: 500px;
+        margin: 0 auto;
+        margin-top: -30px;
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .top-testimonial img {
+        width: 48%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Sidebar nav */
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transition: right 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
+        /* Enables vertical scroll */
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS */
+    }
+
+
+    .close-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: none;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        color: #333;
+    }
+
+
+    .mobile-sidebar.active {
+        right: 0;
+    }
+
+    .sidebar-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 28px;
+        background: #0a66c2;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .mobile-sidebar h3 {
+        margin-top: 0;
+        color: #0a66c2;
+        font-size: 20px;
+    }
+
+    .mobile-sidebar img {
+        width: 100%;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+
+    section {
+        background: white;
+        margin: 30px auto;
+        padding: 30px 20px;
+        max-width: 800px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+        color: #0a66c2;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: #25d366;
+        color: white;
+        padding: 15px 25px;
+        font-size: 18px;
+        text-align: center;
+        border-radius: 8px;
+        text-decoration: none;
+        margin: 20px 0;
+        transition: background 0.3s;
+        animation: slideUp 1s ease-out;
+    }
+
+    .cta-button:hover {
+        background: #1ebe57;
+    }
+
+    .testimonial-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .testimonial-gallery img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    button[type="submit"] {
+        padding: 12px 20px;
+        font-size: 16px;
+        background: #0a66c2;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .proof-box {
+        background: #e6f0ff;
+        padding: 20px;
+        border-left: 5px solid #0a66c2;
+        margin: 20px 0;
+        border-radius: 10px;
+    }
+
+    .proof-box p {
+        margin: 5px 0;
+    }
+
+    .urgency-box {
+        background: #fff3cd;
+        color: #856404;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 13px;
+        color: #666;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Monetize Your LinkedIn Account</h1>
+        <p>Join our network of earners today – safe, simple, weekly payouts</p>
+    </header>
+
+    <br>
+
+    <hr>
+    <section>
+        <div class="urgency-box">⏳ Only 25 slots available this week – we close at 10 PM daily!</div>
+        <h2>How It Works</h2>
+        <p><strong>3 Easy Steps:</strong> Apply with your LinkedIn account → Get reviewed in minutes → Start earning
+            weekly!
+            We are a Private Trading and Marketing company in the US looking for a large number of Linkedin Accouns for
+            our recruitment and marketing sales services</p>
+        <ul>
+            <li>✅ Apply with your LinkedIn account</li>
+            <li>✅ We review and approve safe accounts</li>
+            <li>✅ Earn weekly without giving away access</li>
+        </ul>
+        <div class="proof-box">
+            <p><strong>🔥 Latest Payout:</strong> $8.4 paid to Benjamin Ombeyo +2541150***** on <span class="date"></span></p>
+            <p><strong>📨 Avg Response Time:</strong> 15–30 mins after message</p>
+            <p><strong>💰 Total Paid:</strong> Over ₦2,000,000 this month</p>
+        </div>
+        <a class="cta-button"
+            href="https://wa.me/+23455?text=Hi,%20I%27m%20interested%20in%20your%20LinkedIn%20rental%20offer"
+            target="_blank">✅ Chat with Us on WhatsApp</a>
+    </section>
+
+    <section>
+        <h2>Why Monetize Your LinkedIn Account?</h2>
+        <ul>
+            <li>📈 You earn passively every week without doing anything at all</li>
+            <li>🔒 We ONLY log into your account to use it temporarily</li>
+            <li>🧘 Stress-free – no calls, no monitoring, just payouts</li>
+            <li>✅ We only need your LinkedIn profile link for soft outreach</li>
+            <li>💼 Perfect for students, workers, and anyone with a LinkedIn account</li>
+        </ul>
+        <div class="proof-box">
+            <p><strong>Your Safety is Our Priority:</strong> Your login is 100% private. We do not share with anyone or
+                change login settings.</p>
+            <p><strong>How We Use Your Profile:</strong> We show job opportunities, partnerships, or promote startup
+                awareness — nothing shady or illegal.</p>
+        </div>
+    </section>
+
+    <section>
+        <section>
+            <h2>What You’ll Earn</h2>
+            <ul>
+                <li>💸 ₦7500 – ₦40,000 weekly depending on your LinkedIn account connections</li>
+                <li>🎯 No stress, no skills needed</li>
+                <li>💼 Legit opportunity to earn passively</li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>FAQs</h2>
+            <p><strong>Is this legal and safe?</strong><br>Yes, we only log into your account without changing settings.
+                We only use it for soft outreach through approved APIs.</p>
+            <p><strong>What do I need to get started?</strong><br>Just a LinkedIn account with at least 0 connections.
+            </p>
+            <p><strong>How will I receive payments?</strong><br>Bank transfer, crypto, or mobile wallet.</p>
+        </section>
+
+        <section>
+            <h2>Start Now</h2>
+            <p>Join others already earning passively from LinkedIn.</p>
+            <a class="cta-button"
+                href="https://wa.me/+23470371?text=Hi,%20I%27m%20interested%20in%20your%20LinkedIn%20rental%20offer"
+                target="_blank">✅ Chat with Us on WhatsApp</a>
+        </section>
+
+        <footer class="footer"></footer>
+        <script>
+            function getYesterdayDate() {
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 2);
+                return yesterday.toLocaleDateString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric'
+                });
+            }
+
+            document.querySelector('footer').innerHTML = `&copy; ${new Date().getFullYear()} LinkedIn Partner Leads. All rights reserved. | Privacy protected.`;
+            document.querySelector('.date').textContent = getYesterdayDate();
+        </script>
+    </section>
+</body>
